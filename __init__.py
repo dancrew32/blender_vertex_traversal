@@ -77,7 +77,7 @@ class Panel(bpy.types.Panel):
 
     @classmethod
     def poll(cls, context):
-        return context.mode in {'EDIT'}
+        return context.mode in {'EDIT_MESH', 'EDIT_CURVE'}
 
     def draw(self, context):
         layout = self.layout
