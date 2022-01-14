@@ -38,30 +38,30 @@ def get_vertex_data():
             'vertices_length': vertices_length}
 
 
-def get_next_vertex():
-    data = get_vertex_data()
-    return 0 if data['current_vertex_index'] + 1 >= data['vertices_length'] else data['current_vertex_index'] + 1
-
-
-def get_prev_vertex():
-    data = get_vertex_data()
+def get_prev_vertex_index(data):
     return data['vertices_length'] - 1 if data['current_vertex_index'] - 1 < 0 else data['current_vertex_index'] - 1
 
 
+def get_next_vertex_index(data):
+    return 0 if data['current_vertex_index'] + 1 >= data['vertices_length'] else data['current_vertex_index'] + 1
+
+
 def select_next_vertex():
+    data = get_vertex_data()
     obj = get_active_object()
     deselect()
     set_object_mode()
-    next_vertex_index = get_next_vertex()
+    next_vertex_index = get_next_vertex_index(data)
     obj.data.vertices[next_vertex_index].select = True
     set_edit_mode()
   
 
 def select_prev_vertex():
+    data = get_vertex_data()
     obj = get_active_object()
     deselect()
     set_object_mode()
-    prev_vertex_index = get_prev_vertex()
+    prev_vertex_index = get_prev_vertex_index(data)
     obj.data.vertices[prev_vertex_index].select = True
     set_edit_mode()
 
