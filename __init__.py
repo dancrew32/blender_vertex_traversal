@@ -66,13 +66,6 @@ def select_prev_vertex():
     set_edit_mode()
 
 
-# Select Next Vertex:
-select_next_vertex()
-
-# Or Select Prev Vertex
-select_prev_vertex()
-
-
 class Panel(bpy.types.Panel):
     """Show Vertex Traversal side panel in 3D View"""
 
